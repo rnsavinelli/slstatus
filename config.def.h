@@ -51,12 +51,11 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
     /* function format                          argument */
-    { cpu_perc,     "   CPU: %s%%  ",           NULL },
-    { ram_perc,     " RAM: %s%%  ",             NULL },
-    { ipv4,         " Wi-Fi (%s",               "wlan0"},
-    { wifi_perc,    "): %s%% ",                 "wlan0"},
-    { run_command,  " Volume: %s  ",            "pamixer --get-volume-human"},
-    { disk_perc,    " Local Storage: %s%% ",    "/home"},
-    { disk_perc,    " Network Storage: %s%% ",  "/home/rnsavinelli/Shared"},
-    { datetime,     " %s   ",                   "%a %d %B %H:%M" },
+    { run_command,      "   %s  ",              "get-volume"},
+    { ipv4,             "   %s ",              "wlan0"},
+    { disk_perc,        "   %s%% ",            "/home"},
+    { disk_perc,        "   %s%% ",            "/home/rnsavinelli/Public"},
+    { datetime,         "   %s ",              "%a %d %B" },
+    { datetime,         "   (UTC-3) %s ",           "%H:%M" },
+    { datetime_utc,     "   (UTC) %s   ",         "%H:%M" },
 };
