@@ -14,6 +14,7 @@ const char *cpu_perc(const char *unused);
 
 /* datetime */
 const char *datetime(const char *fmt);
+const char *datetime_utc(const char *fmt);
 
 /* disk */
 const char *disk_free(const char *path);

@@ -5,16 +5,26 @@
 #include "../slstatus.h"
 #include "../util.h"
 
-const char *
-datetime(const char *fmt)
-{
-	time_t t;
+static const char *
+__datetime_formatter(const char *fmt, struct tm * converter()){	
+	time_t t = time(NULL);
 
-	t = time(NULL);
-	if (!strftime(buf, sizeof(buf), fmt, localtime(&t))) {
+	if (!strftime(buf, sizeof(buf), fmt, converter(&t))) {
 		warn("strftime: Result string exceeds buffer size");
 		return NULL;
 	}
 
 	return buf;
+}
+
+const char *
+datetime(const char *fmt)
+{
+	return __datetime_formatter(fmt, localtime);
+}
+
+const char *
+datetime_utc(const char *fmt)
+{
+	return __datetime_formatter(fmt, gmtime);
 }
