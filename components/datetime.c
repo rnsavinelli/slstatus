@@ -1,20 +1,15 @@
 /* See LICENSE file for copyright and license details. */
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 
 #include "../slstatus.h"
 #include "../util.h"
 
-#define SECONDS_IN_AN_HOUR 3600
-
-const char *
-datetime(const char *fmt)
-{
+static const char *
+__datetime_formatter(const char *fmt, struct tm * converter()){	
 	time_t t;
-
-	t = time(NULL);
-	if (!strftime(buf, sizeof(buf), fmt, localtime(&t))) {
+	
+	if (!strftime(buf, sizeof(buf), fmt, converter(&t))) {
 		warn("strftime: Result string exceeds buffer size");
 		return NULL;
 	}
@@ -23,16 +18,13 @@ datetime(const char *fmt)
 }
 
 const char *
-datetime_hour(const char * hdiff)
+datetime(const char *fmt)
 {
-	time_t t;
+	return __datetime_formatter(fmt, localtime);
+}
 
-	t = time(NULL) + (time_t) atoi(hdiff) * SECONDS_IN_AN_HOUR;
-
-	if (!strftime(buf, sizeof(buf), "%H:%M", localtime(&t))) {
-		warn("strftime: Result string exceeds buffer size");
-		return NULL;
-	}
-
-	return buf;
+const char *
+datetime_utc(const char *fmt)
+{
+	return __datetime_formatter(fmt, gmtime);
 }
