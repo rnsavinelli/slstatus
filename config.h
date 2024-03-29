@@ -51,11 +51,11 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
     /* function format                          argument */
-    { run_command,  "   %s  ",              "get-volume"},
-    { ipv4,         "   %s ",              "wlan0"},
-    { disk_perc,    "   %s%% ",            "/home"},
-    { disk_perc,    "   %s%% ",            "/home/rnsavinelli/Public"},
-    { datetime,     "   %s ",              "%a %d %B" },
-    { datetime,     "   AR %s ",           "%H:%M" },
-    { datetimeuk,   "   UK %s   ",         "%H:%M" },
+    { run_command,      "   %s  ",              "get-volume"},
+    { ipv4,             "   %s ",              "wlan0"},
+    { disk_perc,        "   %s%% ",            "/home"},
+    { disk_perc,        "   %s%% ",            "/home/rnsavinelli/Public"},
+    { datetime,         "   %s ",              "%a %d %B" },
+    { datetime_hour,    "   AR %s ",           "0" },
+    { datetime_hour,    "   UK %s   ",         "3" },
 };
