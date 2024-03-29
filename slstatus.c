@@ -44,6 +44,12 @@ usage(void)
 	die("usage: %s [-v] [-s] [-1]", argv0);
 }
 
+static void
+version(void)
+{
+	die("slstatus-"VERSION);
+}
+
 int
 main(int argc, char *argv[])
 {
@@ -57,7 +63,8 @@ main(int argc, char *argv[])
 	sflag = 0;
 	ARGBEGIN {
 	case 'v':
-		die("slstatus-"VERSION);
+		version();
+		break;
 	case '1':
 		done = 1;
 		/* FALLTHROUGH */
@@ -66,6 +73,7 @@ main(int argc, char *argv[])
 		break;
 	default:
 		usage();
+		break;
 	} ARGEND
 
 	if (argc)
