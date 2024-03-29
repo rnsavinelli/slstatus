@@ -56,6 +56,6 @@ static const struct arg args[] = {
     { disk_perc,        "   %s%% ",            "/home"},
     { disk_perc,        "   %s%% ",            "/home/rnsavinelli/Public"},
     { datetime,         "   %s ",              "%a %d %B" },
-    { datetime,         "   (UTC-3) %s ",           "%H:%M" },
-    { datetime_utc,     "   (UTC) %s   ",         "%H:%M" },
+    { datetime,         "   (UTC-3) %s ",      "%H:%M" },
+    { datetime_utc,     "   (UTC) %s   ",      "%H:%M" },
 };

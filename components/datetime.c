@@ -7,8 +7,8 @@
 
 static const char *
 __datetime_formatter(const char *fmt, struct tm * converter()){	
-	time_t t;
-	
+	time_t t = time(NULL);
+
 	if (!strftime(buf, sizeof(buf), fmt, converter(&t))) {
 		warn("strftime: Result string exceeds buffer size");
 		return NULL;
