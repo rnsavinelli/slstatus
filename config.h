@@ -51,11 +51,12 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
     /* function format                          argument */
-    { run_command,      "   %s  ",              "get-volume"},
+    { run_command,      "   %s ",               "get-volume"},
     { ipv4,             "   %s ",              "wlan0"},
     { disk_perc,        "   %s%% ",            "/home"},
     { disk_perc,        "   %s%% ",            "/home/rnsavinelli/Public"},
+    { run_command,      "   %s ",              "pomodoro -g"},
     { datetime,         "   %s ",              "%a %d %B" },
-    { datetime,         "   (UTC-3) %s ",      "%H:%M" },
-    { datetime_utc,     "   (UTC) %s   ",      "%H:%M" },
+    { datetime,         "   LON %s ",          "%H:%M" },
+    { datetime_arg,     "   BUE %s ",          "%H:%M" },
 };
