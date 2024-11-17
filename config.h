@@ -54,9 +54,9 @@ static const struct arg args[] = {
     { run_command,      "   %s ",               "get-volume"},
     { ipv4,             "   %s ",              "wlan0"},
     { disk_perc,        "   %s%% ",            "/home"},
-    { disk_perc,        "   %s%% ",            "/home/rnsavinelli/Public"},
+//  { disk_perc,        "   %s%% ",            "/home/rnsavinelli/Public"},
     { run_command,      "   %s ",              "pomodoro -g"},
     { datetime,         "   %s ",              "%a %d %B" },
-    { datetime,         "   LON %s ",          "%H:%M" },
-    { datetime_arg,     "   BUE %s ",          "%H:%M" },
+    { datetime_utc,     "   GMT %s ",          "%H:%M" },
+    { datetime,         "   BUE %s ",          "%H:%M" },
 };

@@ -6,7 +6,7 @@
 #include "../util.h"
 
 static const char *
-__datetime_formatter(const char *fmt, struct tm * converter()){	
+__datetime_formatter(const char *fmt, struct tm * converter()){
 	time_t t = time(NULL);
 
 	if (!strftime(buf, sizeof(buf), fmt, converter(&t))) {
@@ -15,11 +15,6 @@ __datetime_formatter(const char *fmt, struct tm * converter()){
 	}
 
 	return buf;
-}
-
-static struct tm * artime(const time_t *_t){
-	const time_t art = *_t + ((-3) * 3600);
-	return gmtime(&art);
 }
 
 const char *
@@ -32,10 +27,4 @@ const char *
 datetime_utc(const char *fmt)
 {
 	return __datetime_formatter(fmt, gmtime);
-}
-
-const char *
-datetime_arg(const char *fmt)
-{
-	return __datetime_formatter(fmt, artime);
 }
